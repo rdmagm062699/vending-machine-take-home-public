@@ -1,0 +1,8 @@
+version: "3"
+services: 
+    vending-machine-tests:
+      container_name: vending-machine-tests 
+      image: vending-machine-tests:latest
+      stdin_open: true
+      volumes:
+          - .:/build
