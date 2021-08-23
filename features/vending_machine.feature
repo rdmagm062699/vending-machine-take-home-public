@@ -45,3 +45,8 @@ Feature: Vending Machine
         When A "penny" is inserted
         Then the amount entered will show "INSERT COIN"
         And the coin return will have .01
+
+    Scenario: The vending machine will accept a nickel
+        Given The vending machine is running
+        When A "nickel" is inserted
+        Then the amount entered will show "0.05"
