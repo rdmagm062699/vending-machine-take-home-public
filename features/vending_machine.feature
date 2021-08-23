@@ -35,3 +35,7 @@ Feature: Vending Machine
         When The "candy" button is pushed 11 time(s)
         Then nothing will be dispensed
         And The display will say "SORRY, WE ARE OUT OF CANDY"
+
+    Scenario: The vending machine will prompt to insert coins if none are entered
+        Given The vending machine is running
+        Then the amount entered will show "INSERT COIN"

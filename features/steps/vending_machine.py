@@ -32,3 +32,10 @@ def step_impl(context, message):
     display = context.browser.find_element_by_id('display').text
 
     assert display == message, f'Expected display to show {message} but it shows {display}'
+
+
+@then(u'the amount entered will show "{message}"')
+def step_impl(context, message):
+    amount_entered = context.browser.find_element_by_id('amount_entered').text
+
+    assert amount_entered == message, f'Expected amount entered to show {message} but it shows {amount_entered}'
