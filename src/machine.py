@@ -11,6 +11,10 @@ class Machine:
     def dispense(self, product_name):
         product = list(filter(lambda p: p.name == product_name.upper(), self.products))[0]
         
-        product.dispense()
-        self.display = 'THANK YOU'
-        self.dispenser = f'DISPENSING {product.name}...'
+        if product.count > 0:
+            product.dispense()
+            self.display = 'THANK YOU'
+            self.dispenser = f'DISPENSING {product.name}...'
+        else:
+            self.dispenser = ''
+            self.display = f'SORRY, WE ARE OUT OF {product.name}'

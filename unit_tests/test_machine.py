@@ -22,11 +22,20 @@ class TestMachine(unittest.TestCase):
 
         machine.dispense('cola')
 
-        assert machine.display == "THANK YOU"
+        assert machine.display == 'THANK YOU'
 
     def test_dispenser_is_set_on_successful_dispense(self):
         machine = Machine()
 
         machine.dispense('cola')
 
-        assert machine.dispenser == "DISPENSING COLA..."
+        assert machine.dispenser == 'DISPENSING COLA...'
+
+    def test_will_display_out_of_product_message_and_not_dispense_if_out_of_cola(self):
+        machine = Machine()
+        
+        for x in range(11):
+            machine.dispense('cola')
+
+        assert machine.dispenser == ''
+        assert machine.display == 'SORRY, WE ARE OUT OF COLA'
