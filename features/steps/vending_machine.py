@@ -39,3 +39,15 @@ def step_impl(context, message):
     amount_entered = context.browser.find_element_by_id('amount_entered').text
 
     assert amount_entered == message, f'Expected amount entered to show {message} but it shows {amount_entered}'
+
+
+@when(u'A "{coin}" is inserted')
+def step_impl(context, coin):
+    context.browser.find_element_by_id(coin).click()
+
+
+@then(u'the coin return will have {amount}')
+def step_impl(context, amount):
+    coin_return = context.browser.find_element_by_id('coin_return').text
+
+    assert float(amount) == float(coin_return)

@@ -39,3 +39,9 @@ Feature: Vending Machine
     Scenario: The vending machine will prompt to insert coins if none are entered
         Given The vending machine is running
         Then the amount entered will show "INSERT COIN"
+
+    Scenario: The vending machine will send penny straight to the coin return
+        Given The vending machine is running
+        When A "penny" is inserted
+        Then the amount entered will show "INSERT COIN"
+        And the coin return will have .01
