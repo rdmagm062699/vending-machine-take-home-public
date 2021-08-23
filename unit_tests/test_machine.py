@@ -39,3 +39,15 @@ class TestMachine(unittest.TestCase):
 
         assert machine.dispenser == ''
         assert machine.display == 'SORRY, WE ARE OUT OF COLA'
+
+    def test_refill_will_load_empty_products_to_10(self):
+        machine = Machine()
+
+        for x in range(10):
+            machine.dispense('cola')
+
+        machine.refill()
+
+        cola = list(filter(lambda p: p.name == 'COLA', machine.products))[0]
+
+        assert cola.count == 10

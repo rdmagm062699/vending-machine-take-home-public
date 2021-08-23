@@ -18,3 +18,7 @@ class Machine:
         else:
             self.dispenser = ''
             self.display = f'SORRY, WE ARE OUT OF {product.name}'
+
+    def refill(self):
+        cola = list(filter(lambda p: p.name == 'COLA', self.products))[0]
+        cola.count = 10
