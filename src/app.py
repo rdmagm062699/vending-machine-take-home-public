@@ -7,12 +7,14 @@ machine = Machine()
 
 coin_slot = {
     'PENNY': {'weight': 2.5, 'diameter': .75, 'thickness': 1.52},
-    'NICKEL': {'weight': 5.0, 'diameter': .835, 'thickness': 1.95}
+    'NICKEL': {'weight': 5.0, 'diameter': .835, 'thickness': 1.95},
+    'DIME': {'weight': 2.268, 'diameter': .705, 'thickness': 1.35},
+    'QUARTER': {'weight': 5.670, 'diameter': .955, 'thickness': 1.75}
 }
 
 @app.route('/', methods=['GET'])
 def get_vending_machine():
-    machine = Machine()
+    machine.__init__()
     return _render()
 
 
