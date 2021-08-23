@@ -1,10 +1,12 @@
 from src.product import Product
 
+PRODUCTS = ['COLA', 'CHIPS']
+
 class Machine:
     def __init__(self):
         self.products = []
-        self.products.append(Product('COLA', 10))
-        self.products.append(Product('CHIPS', 10))
+        for product in PRODUCTS:
+            self.products.append(Product(product, 10))
 
         self.display = ''
         self.dispenser = ''
