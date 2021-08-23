@@ -6,3 +6,11 @@ services:
       stdin_open: true
       volumes:
           - .:/build
+    vending-machine-app:
+      container_name: vending-machine-app
+      image: vending-machine-app:latest
+      stdin_open: true
+      environment:
+        FLASK_APP: /build/src/app
+      ports:
+        - 5000:5000

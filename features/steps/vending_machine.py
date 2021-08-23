@@ -18,7 +18,7 @@ def step_impl(context, product):
     assert actual == expected, f'Expected dispenser to have {expected}, but it is {actual}'
 
 
-@then(u'The dislay will say "{message}"')
+@then(u'The display will say "{message}"')
 def step_impl(context, message):
     display = context.browser.find_element_by_id('display').text
 
