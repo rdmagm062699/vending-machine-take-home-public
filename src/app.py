@@ -12,8 +12,7 @@ coin_slot = {
 @app.route('/', methods=['GET'])
 def get_vending_machine():
     machine = Machine()
-    coin_return = format(machine.coin_return_in_cents / 100, '.2f')
-    return render_template('index.html', dispenser=machine.dispenser, display=machine.display, amount_entered='INSERT COIN', coin_return=coin_return)
+    return _render()
 
 
 @app.route('/', methods=['POST'])
@@ -26,5 +25,9 @@ def post_vending_machine():
         dimensions = coin_slot[request.form.get('coin_button')]
         machine.add_coin(dimensions['weight'], dimensions['diameter'], dimensions['thickness'])
 
+    return _render()
+
+
+def _render():
     coin_return = format(machine.coin_return_in_cents / 100, '.2f')
     return render_template('index.html', dispenser=machine.dispenser, display=machine.display, amount_entered='INSERT COIN', coin_return=coin_return)
