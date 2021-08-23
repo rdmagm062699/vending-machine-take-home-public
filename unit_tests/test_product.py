@@ -8,3 +8,9 @@ class TestMachine(unittest.TestCase):
 
         product.dispense()
         assert product.count == 1
+
+    def test_product_count_will_never_go_below_0(self):
+        product = Product('COLA', 0)
+        
+        product.dispense()
+        assert product.count == 0

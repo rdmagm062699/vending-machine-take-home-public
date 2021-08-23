@@ -4,4 +4,5 @@ class Product:
         self.count = count
 
     def dispense(self):
-        self.count -= 1
+        if self.count > 0:
+            self.count -= 1
