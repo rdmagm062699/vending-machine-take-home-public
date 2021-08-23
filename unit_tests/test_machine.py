@@ -23,3 +23,10 @@ class TestMachine(unittest.TestCase):
         machine.dispense('cola')
 
         assert machine.display == "THANK YOU"
+
+    def test_dispenser_is_set_on_successful_dispense(self):
+        machine = Machine()
+
+        machine.dispense('cola')
+
+        assert machine.dispenser == "DISPENSING COLA..."

@@ -6,9 +6,11 @@ class Machine:
         self.products.append(Product('COLA', 10))
 
         self.display = ''
+        self.dispenser = ''
 
     def dispense(self, product_name):
         product = list(filter(lambda p: p.name == product_name.upper(), self.products))[0]
         
         product.dispense()
         self.display = 'THANK YOU'
+        self.dispenser = f'DISPENSING {product.name}...'
