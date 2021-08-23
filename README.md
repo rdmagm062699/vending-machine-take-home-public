@@ -18,7 +18,7 @@ To run unit tests execute the following:
 
 
 ### Acceptance Tests
-To run acceptance tests execute the following:
+To run acceptance tests execute the following.  The first run will take a couple of minutes due to needing to build necessary docker images:
 1. `./scripts/run_acceptance_tests_docker.sh`
 
 
