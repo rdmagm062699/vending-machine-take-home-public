@@ -51,3 +51,10 @@ class TestMachine(unittest.TestCase):
 
         candy = list(filter(lambda p: p.name == 'CANDY', machine.products))[0]
         assert candy.count == 10
+
+    def test_adding_a_penny_adds_one_cent_to_coin_return(self):
+        machine = Machine()
+
+        machine.add_coin(2.5, .75, 1.52)
+
+        assert machine.coin_return_in_cents == 1
