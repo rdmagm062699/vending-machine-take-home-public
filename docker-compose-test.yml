@@ -1,5 +1,10 @@
 version: "3"
 services: 
+    selenium:
+      container_name: selenium
+      image: selenium/standalone-chrome
+      ports:
+        - 4444:4444
     vending-machine-tests:
       container_name: vending-machine-tests 
       image: vending-machine-tests:latest
