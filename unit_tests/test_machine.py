@@ -58,3 +58,10 @@ class TestMachine(unittest.TestCase):
         machine.add_coin(2.5, .75, 1.52)
 
         assert machine.coin_return_in_cents == 1
+
+    def test_adding_a_nickel_adds_five_cents_to_amount(self):
+        machine = Machine()
+
+        machine.add_coin(5.0, .835, 1.95)
+
+        assert machine.amount_in_cents == 5
