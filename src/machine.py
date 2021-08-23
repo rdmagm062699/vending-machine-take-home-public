@@ -1,6 +1,6 @@
 from src.product import Product
 
-PRODUCTS = ['COLA', 'CHIPS']
+PRODUCTS = ['COLA', 'CHIPS', 'CANDY']
 
 class Machine:
     def __init__(self):
