@@ -8,6 +8,7 @@ Vending Machine Take Home
 
 ### Assumptions 
 * The vending machine only has enough room for 10 of each product
+* When the main url is visited the vending machine will be reset and restocked
 
 
 ### Unit Tests

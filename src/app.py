@@ -8,6 +8,7 @@ machine = Machine()
 
 @app.route('/', methods=['GET'])
 def get_vending_machine():
+    machine = Machine()
     return render_template('index.html')
 
 
