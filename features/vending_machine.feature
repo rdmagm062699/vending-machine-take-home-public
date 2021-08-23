@@ -50,3 +50,13 @@ Feature: Vending Machine
         Given The vending machine is running
         When A "nickel" is inserted
         Then the amount entered will show "0.05"
+
+    Scenario: The vending machine will accept a dime
+        Given The vending machine is running
+        When A "dime" is inserted
+        Then the amount entered will show "0.10"
+
+    Scenario: The vending machine will accept a quarter
+        Given The vending machine is running
+        When A "quarter" is inserted
+        Then the amount entered will show "0.25"
