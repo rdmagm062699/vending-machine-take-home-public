@@ -51,3 +51,9 @@ class TestMachine(unittest.TestCase):
         cola = list(filter(lambda p: p.name == 'COLA', machine.products))[0]
 
         assert cola.count == 10
+
+    def test_new_machine_has_10_chips(self):
+        machine = Machine()
+
+        chips = list(filter(lambda p: p.name == 'CHIPS', machine.products))[0]
+        assert chips.count == 10

@@ -4,6 +4,7 @@ class Machine:
     def __init__(self):
         self.products = []
         self.products.append(Product('COLA', 10))
+        self.products.append(Product('CHIPS', 10))
 
         self.display = ''
         self.dispenser = ''
