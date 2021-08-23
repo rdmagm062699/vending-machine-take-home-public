@@ -23,3 +23,15 @@ Feature: Vending Machine
         When The "chips" button is pushed 11 time(s)
         Then nothing will be dispensed
         And The display will say "SORRY, WE ARE OUT OF CHIPS"
+
+    Scenario: The vending machine dispenses candy and says thank you
+        Given The vending machine is running
+        When The "candy" button is pushed 1 time(s)
+        Then "Candy" will be dispensed
+        And The display will say "THANK YOU"
+
+    Scenario: The vending machine will run out of candy
+        Given The vending machine is running
+        When The "candy" button is pushed 11 time(s)
+        Then nothing will be dispensed
+        And The display will say "SORRY, WE ARE OUT OF CANDY"
