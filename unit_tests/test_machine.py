@@ -16,3 +16,10 @@ class TestMachine(unittest.TestCase):
         cola = list(filter(lambda p: p.name == 'COLA', machine.products))[0]
 
         assert cola.count == 9
+
+    def test_machine_display_set_on_successful_dispense(self):
+        machine = Machine()
+
+        machine.dispense('cola')
+
+        assert machine.display == "THANK YOU"
