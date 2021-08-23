@@ -6,7 +6,8 @@ app = Flask(__name__)
 machine = Machine()
 
 coin_slot = {
-    'PENNY': {'weight': 2.5, 'diameter': .75, 'thickness': 1.52}
+    'PENNY': {'weight': 2.5, 'diameter': .75, 'thickness': 1.52},
+    'NICKEL': {'weight': 5.0, 'diameter': .835, 'thickness': 1.95}
 }
 
 @app.route('/', methods=['GET'])
@@ -30,4 +31,5 @@ def post_vending_machine():
 
 def _render():
     coin_return = format(machine.coin_return_in_cents / 100, '.2f')
-    return render_template('index.html', dispenser=machine.dispenser, display=machine.display, amount_entered='INSERT COIN', coin_return=coin_return)
+    amount_entered = 'INSERT COIN' if machine.amount_in_cents == 0 else format(machine.amount_in_cents / 100, '.2f')
+    return render_template('index.html', dispenser=machine.dispenser, display=machine.display, amount_entered=amount_entered, coin_return=coin_return)
