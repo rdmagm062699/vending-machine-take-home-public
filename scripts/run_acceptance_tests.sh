@@ -7,6 +7,7 @@ root_dir="${this_dir}/.."
 
 cd $root_dir
 
+pip install --upgrade pip
 pip install -r requirements_dev.txt
 
 echo "Running behave tests..."
