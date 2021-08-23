@@ -7,7 +7,8 @@ def step_impl(context):
 
 @when(u'The "{button}" button is pushed {pushes} time(s)')
 def step_impl(context, button, pushes):
-    context.browser.find_element_by_id(button).click()
+    for x in range(int(pushes)):
+        context.browser.find_element_by_id(button).click()
 
 
 @then(u'"{product}" will be dispensed')
