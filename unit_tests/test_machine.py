@@ -10,33 +10,41 @@ class TestMachine(unittest.TestCase):
 
         cola = list(filter(lambda p: p.name == product, machine.products))[0]
         assert cola.count == 10
-
-    def test_machine_will_dispense_cola(self):
+    
+    @parameterized.expand([
+        ['COLA', 100], 
+        ['CHIPS', 50], 
+        ['CANDY', 65]
+    ])
+    def test_machine_will_successfully_dispense_product_if_price_met(self, name, price_in_cents):
         machine = Machine()
+        machine.amount_in_cents = price_in_cents
 
-        machine.dispense('cola')
-        cola = list(filter(lambda p: p.name == 'COLA', machine.products))[0]
-
-        assert cola.count == 9
-
-    def test_machine_display_set_on_successful_dispense(self):
-        machine = Machine()
-
-        machine.dispense('cola')
-
+        machine.dispense(name)
+        product = list(filter(lambda p: p.name == name, machine.products))[0]
+        assert product.count == 9
         assert machine.display == 'THANK YOU'
+        assert machine.dispenser == f'DISPENSING {name}...'
 
-    def test_dispenser_is_set_on_successful_dispense(self):
+    @parameterized.expand([
+        ['COLA', '1.00'], 
+        ['CHIPS', '0.50'], 
+        ['CANDY', '0.65']
+    ])
+    def test_machine_will_not_dispense_product_if_price_is_not_met(self, name, price):
         machine = Machine()
 
-        machine.dispense('cola')
-
-        assert machine.dispenser == 'DISPENSING COLA...'
+        machine.dispense(name)
+        product = list(filter(lambda p: p.name == name, machine.products))[0]
+        assert product.count == 10
+        assert machine.dispenser == ''
+        assert machine.display == f'PRICE {price}'
 
     def test_will_display_out_of_product_message_and_not_dispense_if_out_of_cola(self):
         machine = Machine()
         
         for x in range(11):
+            machine.amount_in_cents = 100
             machine.dispense('cola')
 
         assert machine.dispenser == ''
