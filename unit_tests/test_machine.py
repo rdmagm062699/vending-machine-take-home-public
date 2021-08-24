@@ -79,4 +79,13 @@ class TestMachine(unittest.TestCase):
         machine.dispense('COLA')
 
         assert machine.coin_return_in_cents == 25
+
+    def test_change_will_be_added_to_coin_return_if_money_already_in_return(self):
+        machine = Machine()
+        machine.amount_in_cents = 125
+        machine.coin_return_in_cents = 10
+
+        machine.dispense('COLA')
+
+        assert machine.coin_return_in_cents == 35
     
