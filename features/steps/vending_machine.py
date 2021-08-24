@@ -11,6 +11,21 @@ def step_impl(context, button, pushes):
         context.browser.find_element_by_id(button).click()
 
 
+@when(u'"{product}" is purchased {purchases} time(s)')
+def step_impl(context, product, purchases):
+    product_coins = {
+        'cola': ['quarter', 'quarter','quarter', 'quarter'],
+        'chips': ['quarter', 'quarter'],
+        'candy': ['quarter', 'quarter', 'dime', 'nickel']
+    }
+
+    for x in range(int(purchases)):
+        for coin in product_coins[product]:
+            context.browser.find_element_by_id(coin).click()
+        context.browser.find_element_by_id(product).click()
+
+
+
 @then(u'"{product}" will be dispensed')
 def step_impl(context, product):
     expected = f'DISPENSING {product.upper()}...'
