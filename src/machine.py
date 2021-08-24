@@ -40,6 +40,7 @@ class Machine:
     def _try_to_dispense(self, product):
         if product.count > 0:
             product.dispense()
+            self.coin_return_in_cents = self.amount_in_cents - product.price_in_cents
             self.amount_in_cents = 0
             self._display_successful_dispense(product)
         else:

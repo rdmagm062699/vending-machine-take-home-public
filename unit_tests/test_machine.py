@@ -71,3 +71,12 @@ class TestMachine(unittest.TestCase):
         machine.dispense('COLA')
 
         assert machine.amount_in_cents == 0
+
+    def test_correct_change_is_made_when_too_much_money_is_entered(self):
+        machine = Machine()
+        machine.amount_in_cents = 125
+
+        machine.dispense('COLA')
+
+        assert machine.coin_return_in_cents == 25
+    
