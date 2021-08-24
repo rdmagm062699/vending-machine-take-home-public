@@ -1,12 +1,14 @@
 import unittest
+from parameterized import parameterized
 from src.machine import Machine
 
 class TestMachine(unittest.TestCase):
 
-    def test_new_machine_has_10_colas(self):
+    @parameterized.expand(['COLA', 'CHIPS', 'CANDY'])
+    def test_new_machine_has_10_of_each_product(self, product):
         machine = Machine()
 
-        cola = list(filter(lambda p: p.name == 'COLA', machine.products))[0]
+        cola = list(filter(lambda p: p.name == product, machine.products))[0]
         assert cola.count == 10
 
     def test_machine_will_dispense_cola(self):
@@ -39,18 +41,6 @@ class TestMachine(unittest.TestCase):
 
         assert machine.dispenser == ''
         assert machine.display == 'SORRY, WE ARE OUT OF COLA'
-        
-    def test_new_machine_has_10_chips(self):
-        machine = Machine()
-
-        chips = list(filter(lambda p: p.name == 'CHIPS', machine.products))[0]
-        assert chips.count == 10
-
-    def test_new_machine_has_10_candy(self):
-        machine = Machine()
-
-        candy = list(filter(lambda p: p.name == 'CANDY', machine.products))[0]
-        assert candy.count == 10
 
     def test_adding_a_penny_adds_one_cent_to_coin_return(self):
         machine = Machine()
