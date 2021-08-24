@@ -72,5 +72,5 @@ Feature: Vending Machine
         Given The vending machine is running
         When A "nickel" is inserted
         And "cola" is purchased 1 time(s)
-        And the coin return will have .05
+        Then the coin return will have .05
 
