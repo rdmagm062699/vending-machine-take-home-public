@@ -1,6 +1,8 @@
 Vending Machine Take Home
 ====================
 
+This application simulates a vending machine, the features implemented are defined [here](./exercise/README.md)
+
 ### Requirements
 * Python 3.9.6
 * Docker
