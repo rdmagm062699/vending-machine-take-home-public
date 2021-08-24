@@ -67,3 +67,10 @@ Feature: Vending Machine
         And The "cola" button is pushed 1 time(s)
         Then no product will be dispensed
         And The display will say "PRICE 1.00"
+
+    Scenario: The vending machine will give proper change in the coin return
+        Given The vending machine is running
+        When A "nickel" is inserted
+        And "cola" is purchased 1 time(s)
+        And the coin return will have .05
+
