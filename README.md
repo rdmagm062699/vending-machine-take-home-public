@@ -11,6 +11,7 @@ This application simulates a vending machine, the features implemented are defin
 ### Assumptions 
 * The vending machine only has enough room for 10 of each product
 * When the main url is visited the vending machine will be reset and restocked
+* Only one person will use the vending machine at a time
 
 
 ### Unit Tests
