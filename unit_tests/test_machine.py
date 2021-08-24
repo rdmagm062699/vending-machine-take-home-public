@@ -63,3 +63,11 @@ class TestMachine(unittest.TestCase):
         machine.add_coin(5.0, .835, 1.95)
 
         assert machine.amount_in_cents == 5
+
+    def test_amount_is_cleared_on_successful_dispense(self):
+        machine = Machine()
+        machine.amount_in_cents = 100
+
+        machine.dispense('COLA')
+
+        assert machine.amount_in_cents == 0

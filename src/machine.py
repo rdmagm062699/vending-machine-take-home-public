@@ -29,6 +29,7 @@ class Machine:
             product.dispense()
             self.display = 'THANK YOU'
             self.dispenser = f'DISPENSING {product.name}...'
+            self.amount_in_cents = 0
         else:
             self.dispenser = ''
             self.display = f'SORRY, WE ARE OUT OF {product.name}'
