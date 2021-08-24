@@ -60,3 +60,10 @@ Feature: Vending Machine
         Given The vending machine is running
         When A "quarter" is inserted
         Then the amount entered will show "0.25"
+
+    Scenario: The vending machine will not dispense a product if not enough money added
+        Given The vending machine is running
+        When A "nickel" is inserted
+        And The "cola" button is pushed 1 time(s)
+        Then no product will be dispensed
+        And The display will say "PRICE 1.00"

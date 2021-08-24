@@ -25,13 +25,19 @@ def step_impl(context, product, purchases):
         context.browser.find_element_by_id(product).click()
 
 
-
 @then(u'"{product}" will be dispensed')
 def step_impl(context, product):
     expected = f'DISPENSING {product.upper()}...'
     actual = context.browser.find_element_by_id('dispenser').text
     
     assert actual == expected, f'Expected dispenser to have {expected}, but it is {actual}'
+
+
+@then(u'no product will be dispensed')
+def step_impl(context):
+    actual = context.browser.find_element_by_id('dispenser').text
+    
+    assert actual == '', f'Expected nothing to be dispensed'
 
 
 @then(u'nothing will be dispensed')
